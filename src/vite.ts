@@ -6,6 +6,7 @@ const { IPC_RPC } = require("@vite/vitejs-ipc");
 import {exec, execSync } from 'child_process';
 import * as utils from "./utils";
 import config from "./vite.config.json";
+import * as compiler from "./compiler";
 import {name as packageName} from "../package.json";
 
 let process: any;
@@ -146,3 +147,5 @@ export async function isConfirmed(provider: any, hash?: string) {
     }
   }
 }
+
+export const compile = compiler.compile
