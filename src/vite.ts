@@ -25,8 +25,8 @@ export async function startLocalNetwork(node: string = 'nightly') {
           cwd: binPath
       },
       (error, stdout, stderr) => {
-        if(error) console.error(error);
-        console.log(stdout);
+        // if(error) console.error(error);
+        // console.log(stdout);
       }
   );
   console.log('[Vite] Waiting for the local network to go live...');
@@ -44,8 +44,8 @@ export async function stopLocalNetwork() {
           cwd: binPath
       },
       (error, stdout, stderr) => {
-        if(error) console.error(error);
-        console.log(stdout);
+        // if(error) console.error(error);
+        // console.log(stdout);
       }
   );
 }
