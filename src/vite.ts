@@ -6,10 +6,13 @@ const { IPC_RPC } = require("@vite/vitejs-ipc");
 import {exec, execSync } from 'child_process';
 import * as utils from "./utils";
 import config from "./vite.config.json";
+import {name as packageName} from "../package.json";
 
 let process: any;
 let provider: any;
 let nodeConfig: any;
+
+const binPath = `node_modules/${packageName}/bin/`
 
 export async function startLocalNetwork(node: string = 'nightly') {
   console.log('[Vite] Starting Vite local network...');
@@ -18,7 +21,7 @@ export async function startLocalNetwork(node: string = 'nightly') {
   process = exec(
     `./restart.sh ${nodeConfig.name}`,
       {
-          cwd: 'bin/'
+          cwd: binPath
       },
       (error, stdout, stderr) => {
         // if(error) console.error(error);
@@ -37,7 +40,7 @@ export async function stopLocalNetwork() {
   exec(
     `./shutdown.sh`,
       {
-          cwd: 'bin/'
+          cwd: binPath
       },
       (error, stdout, stderr) => {
         // if(error) console.error(error);
